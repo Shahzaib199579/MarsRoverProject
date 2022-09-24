@@ -24,5 +24,10 @@ namespace MarsRover.Models
 
         public Point Position { get; set; }
         public char Direction { get; set; }
+
+        public virtual string CurrentPosition()
+        {
+            return Position.X.ToString() +" "+ Position.Y.ToString() +" "+ Direction.ToString();
+        }
     }
 }

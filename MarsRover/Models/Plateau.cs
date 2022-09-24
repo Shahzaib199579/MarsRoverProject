@@ -18,5 +18,14 @@ namespace MarsRover.Models
         }
 
         public List<Rover> Rovers { get; set; }
+
+        public void ShowRovers()
+        {
+            //foreach (var rover in Rovers)
+            //{
+            //    rover.ShowPosition();
+            //}
+            throw new NotImplementedException();
+        }
     }
 }
