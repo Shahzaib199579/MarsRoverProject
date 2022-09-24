@@ -6,7 +6,7 @@ using System;
 
 namespace MarsRover.Test;
 
-public class Tests
+public class RoverTests
 {
     private Rover _rover;
     [SetUp]

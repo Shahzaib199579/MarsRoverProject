@@ -22,5 +22,19 @@ namespace MarsRover.Models
     
         public int X { get; set; }
         public int Y { get; set; }
+
+        public void Print()
+        {
+            Console.Write("(" + X.ToString() + "," + Y.ToString() + ")");
+        }
+
+        public static Point operator +(Point a, Point b)
+        {
+            return new Point(a.X + b.X, a.Y + b.Y);
+        }
+        public static Point operator -(Point a, Point b)
+        {
+            return new Point(b.X - a.X, b.Y - a.Y);
+        }
     }
 }

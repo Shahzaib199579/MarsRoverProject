@@ -12,15 +12,15 @@ namespace MarsRover.Models
         {
             BottomLeftPoint = SmallestPoint;
             TopRightPoint = GreatestPoint;
-            TopLeftPoint = new();
-            BottomRightPoint = new();
+            TopLeftPoint = new Point(SmallestPoint.X, GreatestPoint.Y);
+            BottomRightPoint = new Point(GreatestPoint.X, SmallestPoint.Y);
         }
-        public Rectangle(Point bottomLeft, Point bottomRight, Point topLeft, Point topRight): base(topRight, bottomLeft)
+        public Rectangle(Point topRight, Point bottomLeft): base(topRight, bottomLeft)
         {
             BottomLeftPoint = bottomLeft;
-            BottomRightPoint = bottomRight;
-            TopLeftPoint = topLeft;
             TopRightPoint = topRight;
+            BottomRightPoint = new Point(GreatestPoint.X, SmallestPoint.Y);
+            TopLeftPoint = new Point(SmallestPoint.X, GreatestPoint.Y);
         }
 
         public Point BottomLeftPoint { get; set; }
