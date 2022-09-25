@@ -32,5 +32,28 @@ namespace MarsRover.Test
             _plateau.CreateRover(1, 1, RoverDirection.EAST).Should().Be(String.Empty);
             _plateau.CreateRover(1, 1, RoverDirection.EAST).Should().Contain(ErrorMessages.ERROR);
         }
+
+        [Test]
+        public void Plateau_Move_Rover_Should_Move_Rover_To_New_Position()
+        {
+            _plateau.CreateRover(1,1, RoverDirection.NORTH);
+            _plateau.MoveRover("RM").Should().Be("2 1 E");
+
+            _plateau.CreateRover(1, 1, RoverDirection.NORTH);
+            _plateau.MoveRover("MR").Should().Be("1 2 E");
+
+            _plateau.CreateRover(1, 1, RoverDirection.EAST);
+            _plateau.MoveRover("LLM").Should().Be("0 1 W");
+        }
+
+        [Test]
+        public void Plateau_Move_Rover_Should_Not_Move_Rover_To_Point_Where_Another_Rover()
+        {
+            _plateau.CreateRover(1, 1, RoverDirection.NORTH);
+            var result = _plateau.MoveRover("RM");
+
+            _plateau.CreateRover(1, 1, RoverDirection.NORTH);
+            _plateau.MoveRover("RM").Should().Contain(ErrorMessages.ERROR);
+        }
     }
 }
