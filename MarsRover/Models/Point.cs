@@ -23,6 +23,16 @@ namespace MarsRover.Models
         public int X { get; set; }
         public int Y { get; set; }
 
+        public void PrintPoint()
+        {
+            Console.Write("(" + X.ToString() + "," + Y.ToString() + ")");
+        }
+
+        public string PointAsString()
+        {
+            return X.ToString() + " " + Y.ToString();
+        }
+
         public void Print()
         {
             Console.Write("(" + X.ToString() + "," + Y.ToString() + ")");

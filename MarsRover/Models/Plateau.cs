@@ -75,8 +75,9 @@ namespace MarsRover.Models
                 var destination = DestinationCalculator.GetDestinationPointAndDirection(command, 
                                                                                     rover.Position,
                                                                                     rover.Direction);
-                if (RoverPositions.Where(x => x.X == destination.Item1.X 
-                                            && x.Y == destination.Item1.Y).Count() > 0)
+                if ((destination.Item1.X != rover.Position.X && destination.Item1.Y != rover.Position.Y) 
+                    && (RoverPositions.Where(x => x.X == destination.Item1.X
+                                            && x.Y == destination.Item1.Y).Count() > 0))
                 {
                     throw new Exception(ErrorMessages.ERROR + ": " + ErrorMessages.ROVER_EXIST_ON_POINT);
                 }
