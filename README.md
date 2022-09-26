@@ -20,3 +20,29 @@ The console application has following folders and respective classes within it:
 
 # MarsRover.Test NUnit Project
 This project holds the **RoverTests** and **PlateauTests** classes that each holds test for respective class in the console application.
+
+# How to Run
+Clone the respository locally, `cd` into **MarsRover** console application and run `dotnet run`. If needed then first run `dotnet restore` then do `dotnet run`. After the program is running then first input should be maximum X and Y coordinates of the plateau.
+
+## Example
+5 5 (Press Enter)
+
+##
+You will then have to enter the (x,y) point on which you want to create your rover with a direction in which rover is facing. Include white space while giving input.
+
+## Example
+1 1 N (Press Enter)
+
+##
+The direction of rover could be **N (North)**, **E (East)**, **W (West)**, **South (South)**, which point could be any point having position X and Y coordinates.
+
+##
+
+You can then give commands to the program to move your rover by using **R (Rotate 90 degree right)**, **L (Rotate 90 degree left)**, **M (Move forward)** in a string and press enter.
+
+## Example
+RMRMRM (Press Enter)
+
+##
+
+The above command will make the rover rotate right 90 degree then move one space and it will then repeat it two more times. Program will move the rover and then you can create a new rover if you want by giving the X and Y Coordinates and direction as shown before or you can **Press Enter** when a rover to be created without giving any input. This is terminate the program. 
