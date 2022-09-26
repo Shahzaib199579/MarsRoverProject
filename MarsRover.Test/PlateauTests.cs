@@ -20,6 +20,14 @@ namespace MarsRover.Test
         }
 
         [Test]
+        public void Plateau_Create_Rover_Should_Give_Error_If_Either_X_Or_Y_Of_Coordinate_Negative()
+        {
+            _plateau.CreateRover(-1, 0, RoverDirection.NORTH).Should().Contain(ErrorMessages.ERROR);
+            _plateau.CreateRover(0, -2, RoverDirection.EAST).Should().Contain(ErrorMessages.ERROR);
+            _plateau.CreateRover(-5, -2, RoverDirection.EAST).Should().Contain(ErrorMessages.ERROR);
+        }
+
+        [Test]
         public void Plateau_Create_Rover_Should_Create_Rover_On_Some_Point()
         {
             _plateau.CreateRover(0, 0, RoverDirection.NORTH).Should().Be(String.Empty);

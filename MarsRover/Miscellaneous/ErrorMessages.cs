@@ -10,5 +10,6 @@ namespace MarsRover.Miscellaneous
     {
         public static string ERROR = "ERROR";
         public static string ROVER_EXIST_ON_POINT = "Rover already exists on this point.";
+        public static string INVALID_COORD = "Invalid coordinates.";
     }
 }

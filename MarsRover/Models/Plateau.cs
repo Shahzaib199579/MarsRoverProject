@@ -46,6 +46,8 @@ namespace MarsRover.Models
             try
             {
                 var position = new Point(x, y);
+                if (x < 0 || y < 0)
+                    throw new Exception(ErrorMessages.ERROR + ": " + ErrorMessages.INVALID_COORD);
                 if (RoverPositions.Where(r => r.X == position.X && r.Y == position.Y).ToList().Count != 0)
                     throw new Exception(ErrorMessages.ERROR + ": " + ErrorMessages.ROVER_EXIST_ON_POINT);
                 var rover = new Rover(position, dir);
@@ -75,7 +77,11 @@ namespace MarsRover.Models
                 var destination = DestinationCalculator.GetDestinationPointAndDirection(command, 
                                                                                     rover.Position,
                                                                                     rover.Direction);
-                if ((destination.Item1.X != rover.Position.X && destination.Item1.Y != rover.Position.Y) 
+
+                if ((destination.Item1.X != rover.Position.X
+                    || destination.Item1.Y != rover.Position.Y
+                    || (destination.Item1.X == rover.Position.X && destination.Item1.Y != rover.Position.Y)
+                    || (destination.Item1.X != rover.Position.X && destination.Item1.Y == rover.Position.Y)) 
                     && (RoverPositions.Where(x => x.X == destination.Item1.X
                                             && x.Y == destination.Item1.Y).Count() > 0))
                 {
